@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     bostick.io · v4 · 2026-06-23
+     newsletter form: CUSTOM IFRAME (no zoho JS, no optin.min.js)
+     analytics: zoho pagesense (async, in <head>)
+     if you can see this comment when viewing source, you have the right file
+============================================================ -->
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8TJCZJEBD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D8TJCZJEBD');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paul Bostick</title>
+<meta name="description" content="AI engineering and product on the ServiceNow platform. Ex-Amazon. Building agentic AI that does the work people dread.">
+<meta property="og:title" content="Paul Bostick">
+<meta property="og:description" content="AI engineering and product on the ServiceNow platform.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bostick.io">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --ink: #1A1A1A;
+    --muted: #6B6B65;
+    --rule: #E5E2DA;
+    --accent: #A8421E;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 56px 28px 96px;
+  }
+  .status {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin-bottom: 64px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .status::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: var(--mono);
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  .role {
+    font-size: 19px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .place {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+  .bio {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 64px;
+    max-width: 620px;
+  }
+  section {
+    margin-bottom: 56px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .project {
+    margin-bottom: 32px;
+  }
+  .project:last-child {
+    margin-bottom: 0;
+  }
+  .project-name {
+    font-family: var(--mono);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .project-desc {
+    color: var(--ink);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .project-meta {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .project-meta a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .project-meta a:hover {
+    border-bottom-color: var(--accent);
+  }
+  .metric {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    background: rgba(168, 66, 30, 0.06);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 4px;
+  }
+  .links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .link-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    color: var(--ink);
+    transition: padding 0.15s;
+  }
+  .link-row:hover {
+    padding-left: 6px;
+  }
+  .link-row:hover .link-label {
+    color: var(--accent);
+  }
+  .link-label {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .link-handle {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .newsletter {
+    background: rgba(168, 66, 30, 0.04);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 24px;
+  }
+  .newsletter p {
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .newsletter-stub {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    padding: 12px;
+    background: var(--bg);
+    border: 1px dashed var(--rule);
+    border-radius: 4px;
+  }
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 40px 22px 72px; }
+    h1 { font-size: 30px; }
+    .bio { font-size: 17px; }
+    .link-row { flex-direction: column; align-items: flex-start; gap: 2px; }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1A1A18;
+      --ink: #E8E6DD;
+      --muted: #8C8B82;
+      --rule: #2E2E2A;
+      --accent: #D97A4A;
+    }
+    .newsletter { background: rgba(217, 122, 74, 0.06); }
+    .newsletter-stub { background: var(--bg); }
+    .metric { background: rgba(217, 122, 74, 0.08); }
+    .zoho-form-wrapper .zoho-input { background: rgba(255, 255, 255, 0.03) !important; }
+    .zoho-form-wrapper .zoho-error-msg {
+      background: rgba(255, 100, 80, 0.08) !important;
+      border-color: rgba(255, 100, 80, 0.3) !important;
+      color: #FFA396 !important;
+    }
+  }
+
+  /* Zoho newsletter form overrides */
+  .zoho-form-wrapper { margin-top: 4px; }
+  .zoho-form-wrapper .quick_form_29_css,
+  .zoho-form-wrapper #customForm,
+  .zoho-form-wrapper #sf3z7962b57dda188cd37f2d297b0dc59823d641bf6f002e19bd1f9aa3205b0c3157 {
+    background: transparent !important;
+    border: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    font-family: var(--sans) !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    text-align: left !important;
+  }
+  .zoho-form-wrapper #SIGNUP_HEADING { display: none !important; }
+  .zoho-form-wrapper .zoho-form-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .zoho-form-wrapper .zoho-field { width: 100%; }
+  .zoho-form-wrapper .zoho-input {
+    font-family: var(--mono) !important;
+    font-size: 14px !important;
+    width: 100% !important;
+    background: var(--bg) !important;
+    border: 1px solid var(--rule) !important;
+    color: var(--ink) !important;
+    padding: 11px 12px !important;
+    border-radius: 4px !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    text-align: left !important;
+    outline: none !important;
+    transition: border-color 0.15s !important;
+  }
+  .zoho-form-wrapper .zoho-input:focus { border-color: var(--accent) !important; }
+  .zoho-form-wrapper .zoho-input::placeholder { color: var(--muted) !important; }
+  .zoho-form-wrapper .zoho-button {
+    background: var(--accent) !important;
+    font-family: var(--mono) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    width: 100% !important;
+    height: 42px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transition: opacity 0.15s !important;
+    display: block !important;
+  }
+  .zoho-form-wrapper .zoho-button:hover { opacity: 0.9 !important; }
+  .zoho-form-wrapper .zoho-success-msg {
+    background: rgba(168, 66, 30, 0.06) !important;
+    border: 1px solid var(--rule) !important;
+    border-radius: 4px !important;
+    padding: 10px 12px !important;
+    font-family: var(--mono) !important;
+    font-size: 13px !important;
+    color: var(--ink) !important;
+    margin: 0 0 10px 0 !important;
+    width: 100% !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+  .zoho-form-wrapper .zoho-success-msg img { display: none !important; }
+  .zoho-form-wrapper .zoho-success-msg #signupSuccessMsg {
+    color: var(--ink) !important;
+    font-family: var(--mono) !important;
+    font-size: 13px !important;
+  }
+  .zoho-form-wrapper .zoho-error-msg {
+    background: #FFE5E0 !important;
+    border: 1px solid #FFCCC4 !important;
+    color: #8B2418 !important;
+    padding: 10px 12px !important;
+    font-family: var(--mono) !important;
+    font-size: 13px !important;
+    border-radius: 4px !important;
+    margin: 0 0 8px 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+</style>
+<!-- Zoho PageSense analytics -->
+<script type="text/javascript">(function(w,s){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://cdn.pagesense.io/js/9l7x9a2z/e629b242b34d4a0cb6f14a14f43a205a.js";var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(e,x);})(window,"script");</script>
+</head>
+<body>
+<main class="wrap">
+
+  <div class="status">available for ai engineering work</div>
+
+  <h1>Paul Bostick</h1>
+  <div class="role">AI engineering and product on the ServiceNow platform.</div>
+  <div class="place">centreville, va</div>
+
+  <p class="bio">
+    I stay hands-on in the build. Before this I ran a financial SaaS platform at Amazon spanning 200+ business entities and 160+ countries, with a team of around 200, integrated with finance, accounting, and legal systems. I like making complex operations simple and watching the AI handle the parts people dread.
+  </p>
+
+  <section id="work">
+    <div class="eyebrow">Work</div>
+
+    <div class="project">
+      <div class="project-name">persistent-brain</div>
+      <p class="project-desc">
+        A versioned markdown context layer that a stateless AI coding agent reads before each session and updates after. Cut setup tokens from about 11,400 per session to about 2,700, a <span class="metric">76% reduction</span>.
+      </p>
+      <div class="project-meta">
+        <a href="https://github.com/bostick-io/persistent-brain" target="_blank" rel="noopener">&rarr; github</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-name">ClockPoint</div>
+      <p class="project-desc">
+        A ServiceNow-native workforce wellness app. Employees clock in, get nudged to take movement breaks with a teammate, and log a quick shift report. Managers get a dashboard with an AI assistant that answers plain-English questions about the team, powered by the Anthropic Claude API. Built with Alfred Korankye, Lenard Taylor, and Gunner Evans. Demoed at the Phoenix ServiceNow Developer Meetup.
+      </p>
+      <div class="project-meta">
+        <a href="https://github.com/bostick-io/clockpoint" target="_blank" rel="noopener">&rarr; github</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="find">
+    <div class="eyebrow">Find me</div>
+    <div class="links">
+      <a class="link-row" href="https://github.com/bostick-io" target="_blank" rel="noopener">
+        <span class="link-label">GitHub</span>
+        <span class="link-handle">@bostick-io</span>
+      </a>
+      <a class="link-row" href="https://www.linkedin.com/in/paulbostick/" target="_blank" rel="noopener">
+        <span class="link-label">LinkedIn</span>
+        <span class="link-handle">/in/paulbostick</span>
+      </a>
+      <a class="link-row" href="https://x.com/paul_bostick_io" target="_blank" rel="noopener">
+        <span class="link-label">X</span>
+        <span class="link-handle">@paul_bostick_io</span>
+      </a>
+      <a class="link-row" href="https://www.servicenow.com/community/user/viewprofilepage/user-id/998929" target="_blank" rel="noopener">
+        <span class="link-label">ServiceNow Community</span>
+        <span class="link-handle">Paul Bostick</span>
+      </a>
+      <a class="link-row" href="mailto:paul@bostick.io">
+        <span class="link-label">Email</span>
+        <span class="link-handle">paul@bostick.io</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="eyebrow">Writing</div>
+    <p style="color: var(--muted); font-family: var(--mono); font-size: 13px;">
+      Coming soon. Notes on shipping AI features inside real enterprise platforms.
+    </p>
+  </section>
+
+  <section id="newsletter">
+    <div class="eyebrow">Newsletter</div>
+    <div class="newsletter">
+      <p>Get a note when I ship something new. No marketing, no cadence promises, just the work.</p>
+      <div class="zoho-form-wrapper">
+        <iframe name="newsletter-target" id="newsletter-target" tabindex="-1" aria-hidden="true" title="newsletter submission target" style="position:absolute;width:0;height:0;border:0;visibility:hidden;"></iframe>
+
+        <form id="newsletter-signup" action="https://ckrg-zgfl.maillist-manage.com/weboptin.zc" method="POST" target="newsletter-target" class="zoho-form-inner">
+          <div class="zoho-field">
+            <input type="email" name="CONTACT_EMAIL" id="newsletter-email" placeholder="your email" required autocomplete="email" class="zoho-input">
+          </div>
+          <button type="submit" id="newsletter-submit" class="zoho-button">Subscribe</button>
+
+          <input type="hidden" name="submitType" value="optinCustomView">
+          <input type="hidden" name="emailReportId" value="">
+          <input type="hidden" name="formType" value="QuickForm">
+          <input type="hidden" name="zx" value="12d34cf7">
+          <input type="hidden" name="zcvers" value="3.0">
+          <input type="hidden" name="oldListIds" value="">
+          <input type="hidden" name="mode" value="OptinCreateView">
+          <input type="hidden" name="zcld" value="114c38d6ce1bd005f">
+          <input type="hidden" name="zctd" value="114c38d6ce1b7e7a9">
+          <input type="hidden" name="zc_trackCode" value="ZCFORMVIEW">
+          <input type="hidden" name="zc_formIx" value="3z7962b57dda188cd37f2d297b0dc59823d641bf6f002e19bd1f9aa3205b0c3157">
+        </form>
+
+        <div id="newsletter-success" class="zoho-success-msg" style="display:none;" role="status" aria-live="polite">
+          <div>Thanks. I'll be in touch when I ship something.</div>
+          <div style="margin-top:6px;opacity:0.75;">Check your inbox for a confirmation email to finish subscribing.</div>
+        </div>
+
+        <script>
+          (function() {
+            var form = document.getElementById('newsletter-signup');
+            var iframe = document.getElementById('newsletter-target');
+            var success = document.getElementById('newsletter-success');
+            var submit = document.getElementById('newsletter-submit');
+            if (!form || !iframe || !success || !submit) return;
+            var submitted = false;
+            form.addEventListener('submit', function() {
+              submitted = true;
+              submit.disabled = true;
+              submit.textContent = 'Subscribing…';
+            });
+            iframe.addEventListener('load', function() {
+              if (submitted) {
+                form.style.display = 'none';
+                success.style.display = 'block';
+              }
+            });
+          })();
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>&copy; 2026 Paul Bostick</div>
+    <div>bostick.io</div>
+  </footer>
+
+</main>
+</body>
+</html>
