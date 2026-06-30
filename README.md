@@ -58,3 +58,7 @@ Before ServiceNow I spent 18 years building and running enterprise platforms at 
 ## Connect
 
 [LinkedIn](https://linkedin.com/in/paulbostick) | [X](https://x.com/paul_bostick_io) | paul@bostick.org
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0be7a240be395bdcd65a4bcaab754feb53acbd36
